@@ -2,7 +2,7 @@
 
 import './style.css'
 
-import Phaser from '/phaser'
+import Phaser from '/node_modules/phaser'
 
 var h;
 var w;
