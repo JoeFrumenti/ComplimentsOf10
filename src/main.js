@@ -27,6 +27,8 @@ var config = {
             autoCenter: Phaser.Scale.CENTER_BOTH
         },
         parent:"gameContainer",
+        backgroundColor: '#3fc6f0',
+
         scene: {
             preload: preload,
             create: create,
@@ -103,7 +105,10 @@ var config = {
 
     function populateNumbers()
     {
-      
+      for(let i = 1; i < 10; i++)
+        numbers.push(i);
+
+      shuffle(numbers);
     }
     
     function restart(game)
@@ -112,7 +117,9 @@ var config = {
         element.destroy();
       });
       timer = 0;
-
+      numberAddImage.destroy();
+      
+      loadGame(game);
     }
 
     function loadGame(game)
@@ -121,9 +128,9 @@ var config = {
       for(let i = 1; i < 10; i++)
       {
         game.add.image(w * i/10, h*0.9, '' + i).setScale(w/6000,w/6000).setInteractive().on('pointerdown', () => {handleClick(i, game);});
-        numbers.push(i);
+        
       }
-      shuffle(numbers);
+      populateNumbers();
 
       
       game.add.image(w * 0.4, h*0.2, '+').setScale(w/1500,w/1500);
