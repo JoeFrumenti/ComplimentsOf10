@@ -1,6 +1,6 @@
 import './style.css'
 
-import Phaser from 'phaser'
+import Phaser from '/phaser'
 
 var h;
 var w;
